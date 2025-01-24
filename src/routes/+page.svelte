@@ -23,7 +23,8 @@
 			<svg
 				viewBox="0 -25 32 50"
 				width="64"
-				class="block rotate-90 mt-4 md:mt-0 md:rotate-0 absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:right-[-24px] md:top-1/2 md:-translate-y-1/2 md:ml-auto pointer-events-none w-fit text-white dark:text-ocean-950 dark:contrast-more:text-black"
+				height="100"
+				class="block w-[64px] h-[100px] rotate-90 mt-4 md:mt-0 md:rotate-0 absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:right-[-24px] md:top-1/2 md:-translate-y-1/2 md:ml-auto pointer-events-none text-white dark:text-ocean-950 dark:contrast-more:text-black"
 				style="mask: linear-gradient(to right, black 63%, transparent 100%);"
 			>
 				<path
