@@ -2,10 +2,8 @@
 	import '../app.css';
 	let { children } = $props();
 
-	import NavbarBackground from '$lib/NavbarBackground.svelte';
+	import { Navbar } from '$lib';
 </script>
 
-<div class="h-20 md:h-24">
-	<NavbarBackground tabs={4} currentTab={0} />
-</div>
+<Navbar />
 {@render children()}
