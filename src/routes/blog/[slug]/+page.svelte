@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { type PostMetadata } from '$lib';
+	import type { Post } from '$lib';
 
-	export interface BlogData {
-		posts: PostMetadata[];
+	export interface BlogPostData {
+		post: Post;
 	}
 
-	const { data }: { data: BlogData } = $props();
+	const { data }: { data: BlogPostData } = $props();
 </script>
 
 <div class="sm:px-4 md:pl-0 md:pr-12">
@@ -18,11 +18,10 @@
 		<div
 			class="w-full flex-grow rounded-3xl bg-white dark:bg-ocean-950 px-8 py-12 md:px-12 dark:contrast-more:bg-black"
 		>
-			<ul>
-				{#each data.posts as post}
-					<li><a href="/blog/{post.slug}">{post.title}</a></li>
-				{/each}
-			</ul>
+			<h1 class="font-sans text-5xl font-bold mb-8">{data.post.title}</h1>
+			<div class="prose-anli">
+				<data.post.content />
+			</div>
 		</div>
 	</div>
 	<footer class="pb-12 text-center text-white/70 w-full">&copy; 2025 Anthony Li</footer>
