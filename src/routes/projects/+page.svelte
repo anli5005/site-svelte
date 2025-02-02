@@ -139,7 +139,7 @@
 					data-index={index}
 					href={project.link}
 					target="_blank"
-					class="overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl bg-ocean-700 h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start block bg-cover bg-no-repeat"
+					class="overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl bg-ocean-700 h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start block bg-center bg-cover bg-no-repeat"
 					style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin); {project.image
 						? `background-image: url(${project.image});`
 						: ''}"
