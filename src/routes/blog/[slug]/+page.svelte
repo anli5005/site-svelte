@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Post } from '$lib';
 	import { SplitLayout, SplitLayoutContent, SplitLayoutHeader } from '$lib';
+	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 
 	// @ts-ignore
 	import IconBack from '~icons/majesticons/arrow-circle-left';
@@ -36,6 +37,7 @@
 				day: 'numeric'
 			})}
 		</p>
+		<SplitLayoutBackground class="bg-sage-600" />
 	</SplitLayoutHeader>
 	<SplitLayoutContent spacingClasses="px-8 py-4 md:px-12 lg:py-8">
 		<div class="prose-anli">
@@ -43,5 +45,3 @@
 		</div>
 	</SplitLayoutContent>
 </SplitLayout>
-
-<div class="bg-sage-600 fixed inset-0 -z-10"></div>

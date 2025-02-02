@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+	import { type Snippet } from 'svelte';
 
 	const {
 		children,
@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="min-w-0 w-full flex-grow rounded-3xl bg-white dark:bg-ocean-950 {spacingClasses} dark:contrast-more:bg-black"
+	class="relative rounded-t-2xl min-w-0 w-full flex-grow sm:rounded-3xl bg-white dark:bg-ocean-950 {spacingClasses} dark:contrast-more:bg-black"
 >
 	{@render children()}
 </div>

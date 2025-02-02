@@ -26,7 +26,7 @@
 </script>
 
 <div class="sm:px-4 md:px-12">
-	<div class="container mx-auto flex flex-col items-center mt-8 {responsiveClasses} mb-12">
+	<div class="container mx-auto flex flex-col items-center mt-8 {responsiveClasses}">
 		{@render children()}
 	</div>
 	<Footer />

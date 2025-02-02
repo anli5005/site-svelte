@@ -38,7 +38,7 @@
 </script>
 
 <div
-	class="flex-shrink-0 {responsiveClasses} {layoutClasses} {formattingClasses} {additionalClasses}"
+	class="flex-shrink-0 w-full relative {responsiveClasses} {layoutClasses} {formattingClasses} {additionalClasses}"
 >
 	{@render children()}
 </div>

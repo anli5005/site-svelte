@@ -9,6 +9,7 @@
 
 	// @ts-ignore
 	import IconArrowRight from '~icons/majesticons/arrow-right-line';
+	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 
 	export interface BlogData {
 		posts: PostMetadata[];
@@ -20,9 +21,11 @@
 <SplitLayout>
 	<SplitLayoutHeader>
 		<h1 class="font-sans text-6xl font-bold text-white text-center">Blog</h1>
-		<div class="mt-8 text-8xl">
+		<div class="mt-8 text-8xl hidden lg:block">
 			<IconBlog />
 		</div>
+
+		<SplitLayoutBackground class="bg-sage-600" />
 	</SplitLayoutHeader>
 	<SplitLayoutContent>
 		<ul>
@@ -56,5 +59,3 @@
 		</ul>
 	</SplitLayoutContent>
 </SplitLayout>
-
-<div class="bg-sage-600 fixed inset-0 -z-10"></div>

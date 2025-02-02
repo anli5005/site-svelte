@@ -29,7 +29,7 @@
 	});
 </script>
 
-<div class="h-20 md:h-16 lg:h-24 relative">
+<div class="h-navbar relative">
 	<NavbarBackground tabs={4} {currentTab} />
 	<div class="absolute inset-0 flex w-full items-stretch">
 		<NavbarTab

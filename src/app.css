@@ -1,6 +1,41 @@
 @import 'tailwindcss';
 @config '../tailwind.config.ts';
 
+:root {
+	--container-width: 100vw;
+
+	@variant sm {
+		--container-width: var(--breakpoint-sm);
+	}
+
+	@variant md {
+		--container-width: var(--breakpoint-md);
+	}
+
+	@variant lg {
+		--container-width: var(--breakpoint-lg);
+	}
+
+	@variant xl {
+		--container-width: var(--breakpoint-xl);
+	}
+
+	@variant 2xl {
+		--container-width: var(--breakpoint-2xl);
+	}
+}
+
+.carousel {
+	--carousel-margin: max(0px, calc((100vw - var(--container-width)) / 2 + var(--spacing) * 8));
+
+	scrollbar-width: none;
+	padding: 0 var(--carousel-margin);
+
+	@variant md {
+		--carousel-margin: max(0px, calc((100vw - var(--container-width)) / 2 + var(--spacing) * 12));
+	}
+}
+
 html {
 	color-scheme: light dark;
 	@apply font-serif bg-white text-ocean-950 dark:bg-ocean-1000 dark:text-ocean-100 contrast-more:text-black dark:contrast-more:bg-black dark:contrast-more:text-white;
@@ -17,6 +52,10 @@ html {
 }
 
 @layer utilities {
+	.h-navbar {
+		@apply h-20 md:h-16 lg:h-24;
+	}
+
 	.prose-anli {
 		@apply max-w-none break-words;
 		@apply text-ocean-1000 dark:text-ocean-100;

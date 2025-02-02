@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SplitLayout from '$lib/components/SplitLayout.svelte';
+	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 	import SplitLayoutContent from '$lib/components/SplitLayoutContent.svelte';
 
 	let isFrench = $state(false);
@@ -13,29 +14,33 @@
 
 <SplitLayout breakpoint="md">
 	<div
-		class="flex-shrink-0 md:w-64 h-[16.6rem] md:h-[initial] my-auto relative md:sticky md:bottom-[50vh]"
+		class="flex-shrink-0 w-full md:w-64 h-[16.6rem] md:h-[initial] my-auto relative md:sticky md:bottom-[50vh]"
 	>
-		<img
-			class="block w-48 h-48 rounded-full bg-white/10"
-			src="/pfp-transp.webp"
-			alt="Picrew of an anime-style character with short hair in a gradient of green, blue, and purple, wearing a black hoodie and holding a red mug, smiling with a cheerful expression."
-		/>
-		<svg
-			viewBox="0 -25 32 50"
-			width="64"
-			height="100"
-			class="block w-[64px] h-[100px] rotate-90 mt-4 md:mt-0 md:rotate-0 absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:right-[-24px] md:top-1/2 md:-translate-y-1/2 md:ml-auto pointer-events-none text-white dark:text-ocean-950 dark:contrast-more:text-black"
-			style="mask: linear-gradient(to right, black 63%, transparent 100%);"
-		>
-			<path
-				d="M 0 0 C 0 5, 20 15, 20 20 A 5 5 0 0 0 25 25 L 60 25 L 60 -25 L 25 -25 A 5 5 0 0 0 20 -20 C 20 -15, 0 -5, 0 0"
-				fill="currentColor"
+		<SplitLayoutBackground class="bg-gradient-hero sm:hidden" />
+
+		<div class="w-fit mx-auto md:mx-0 md:w-full">
+			<img
+				class="block w-48 h-48 rounded-full bg-white/10"
+				src="/pfp-transp.webp"
+				alt="Picrew of an anime-style character with short hair in a gradient of green, blue, and purple, wearing a black hoodie and holding a red mug, smiling with a cheerful expression."
 			/>
-		</svg>
-		<div class="absolute mt-1 text-xs md:mt-2 w-48 text-white/50 text-center md:text-sm">
-			<a class="hover:underline" href="https://picrew.me/en/image_maker/210483" target="_blank"
-				>pfp credit</a
+			<svg
+				viewBox="0 -25 32 50"
+				width="64"
+				height="100"
+				class="block w-[64px] h-[100px] rotate-90 mt-4 md:mt-0 md:rotate-0 absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:right-[-24px] md:top-1/2 md:-translate-y-1/2 md:ml-auto pointer-events-none text-white dark:text-ocean-950 dark:contrast-more:text-black"
+				style="mask: linear-gradient(to right, black 63%, transparent 100%);"
 			>
+				<path
+					d="M 0 0 C 0 5, 20 15, 20 20 A 5 5 0 0 0 25 25 L 60 25 L 60 -25 L 25 -25 A 5 5 0 0 0 20 -20 C 20 -15, 0 -5, 0 0"
+					fill="currentColor"
+				/>
+			</svg>
+			<div class="absolute mt-1 text-xs md:mt-2 w-48 text-white/50 text-center md:text-sm">
+				<a class="hover:underline" href="https://picrew.me/en/image_maker/210483" target="_blank"
+					>pfp credit</a
+				>
+			</div>
 		</div>
 	</div>
 	<SplitLayoutContent>
@@ -143,4 +148,4 @@
 	</SplitLayoutContent>
 </SplitLayout>
 
-<div class="bg-gradient-hero fixed inset-0 -z-10"></div>
+<div class="bg-gradient-hero fixed inset-0 -z-10 hidden sm:block"></div>

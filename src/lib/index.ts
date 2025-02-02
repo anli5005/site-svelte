@@ -3,6 +3,7 @@ import NavbarBackground from './components/NavbarBackground.svelte';
 import NavbarTab from './components/NavbarTab.svelte';
 import Footer from './components/Footer.svelte';
 import SplitLayout from './components/SplitLayout.svelte';
+import SplitLayoutBackground from './components/SplitLayoutBackground.svelte';
 import SplitLayoutContent from './components/SplitLayoutContent.svelte';
 import SplitLayoutHeader from './components/SplitLayoutHeader.svelte';
 
@@ -18,5 +19,6 @@ export {
 	Footer,
 	SplitLayout,
 	SplitLayoutContent,
-	SplitLayoutHeader
+	SplitLayoutHeader,
+	SplitLayoutBackground,
 };
