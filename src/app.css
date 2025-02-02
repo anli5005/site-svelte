@@ -12,13 +12,13 @@ html {
 
 @layer components {
 	.prose-anli {
-		@apply prose dark:prose-invert break-words;
+		@apply prose dark:prose-invert;
 	}
 }
 
 @layer utilities {
 	.prose-anli {
-		@apply max-w-none;
+		@apply max-w-none break-words;
 		@apply text-ocean-1000 dark:text-ocean-100;
 		@apply prose-headings:font-sans prose-headings:text-ocean-1000 dark:prose-headings:text-ocean-100;
 		@apply prose-h1:mt-12 prose-h2:mt-8;
@@ -34,6 +34,12 @@ html {
 			}
 		}
 	}
+}
+
+@utility link-base {
+	@apply text-ocean-500 dark:text-ocean-300 underline decoration-ocean-200 dark:decoration-ocean-400/70;
+	@apply contrast-more:text-ocean-700 dark:contrast-more:text-ocean-100 contrast-more:decoration-ocean-700 dark:contrast-more:decoration-ocean-100;
+	@apply transition-colors duration-100;
 }
 
 @utility link {

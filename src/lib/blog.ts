@@ -3,6 +3,7 @@ import type { Component } from 'svelte';
 export interface PostMetadata {
 	slug: string;
 	title: string;
+	subtitle?: string;
 	date: Date;
 }
 
@@ -14,6 +15,7 @@ export interface PostModule {
 	default: Component;
 	metadata: {
 		title: string;
+		subtitle?: string;
 		date: string;
 	};
 }

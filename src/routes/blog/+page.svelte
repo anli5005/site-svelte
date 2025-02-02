@@ -1,5 +1,14 @@
 <script lang="ts">
 	import { type PostMetadata } from '$lib';
+	import SplitLayout from '$lib/components/SplitLayout.svelte';
+	import SplitLayoutContent from '$lib/components/SplitLayoutContent.svelte';
+	import SplitLayoutHeader from '$lib/components/SplitLayoutHeader.svelte';
+
+	// @ts-ignore
+	import IconBlog from '~icons/majesticons/paper-fold-text-line';
+
+	// @ts-ignore
+	import IconArrowRight from '~icons/majesticons/arrow-right-line';
 
 	export interface BlogData {
 		posts: PostMetadata[];
@@ -8,24 +17,44 @@
 	const { data }: { data: BlogData } = $props();
 </script>
 
-<div class="sm:px-4 md:pl-0 md:pr-12">
-	<div
-		class="container mx-auto flex flex-col md:flex-row items-center md:items-start mt-8 md:mt-12 mb-12"
-	>
-		<div class="flex-shrink-0 md:w-52 md:mx-12">
-			<h1 class="mb-8 font-sans text-6xl font-bold text-white text-center">Blog</h1>
+<SplitLayout>
+	<SplitLayoutHeader>
+		<h1 class="font-sans text-6xl font-bold text-white text-center">Blog</h1>
+		<div class="mt-8 text-8xl">
+			<IconBlog />
 		</div>
-		<div
-			class="w-full flex-grow rounded-3xl bg-white dark:bg-ocean-950 px-8 py-12 md:px-12 dark:contrast-more:bg-black"
-		>
-			<ul>
-				{#each data.posts as post}
-					<li><a href="/blog/{post.slug}">{post.title}</a></li>
-				{/each}
-			</ul>
-		</div>
-	</div>
-	<footer class="pb-12 text-center text-white/70 w-full">&copy; 2025 Anthony Li</footer>
-</div>
+	</SplitLayoutHeader>
+	<SplitLayoutContent>
+		<ul>
+			{#each data.posts as post}
+				<li class="mb-8 last:mb-0 break-words">
+					<a
+						href="/blog/{post.slug}"
+						class="group block active:opacity-80 transition-all hover:pl-1"
+					>
+						<div>
+							{post.date.toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric'
+							})}
+						</div>
+						<h4
+							class="relative font-bold text-xl underline link-base group-hover:text-sage-600 dark:group-hover:text-sage-400 group-hover:decoration-sage-600/50 dark:group-hover:decoration-sage-400/50 transition-colors"
+						>
+							<IconArrowRight
+								class="absolute top-1/2 -left-8 transform -translate-y-1/2 opacity-0 group-hover:opacity-60 transition-opacity duration-100"
+							/>
+							{post.title}
+						</h4>
+						{#if post.subtitle}
+							<p class="opacity-70 text-sm italic">{post.subtitle}</p>
+						{/if}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</SplitLayoutContent>
+</SplitLayout>
 
 <div class="bg-sage-600 fixed inset-0 -z-10"></div>

@@ -1,14 +1,13 @@
 <script lang="ts">
-	import '../app.css';
 	import { page } from '$app/state';
-	import NavbarBackground from '$lib/NavbarBackground.svelte';
+	import NavbarBackground from './NavbarBackground.svelte';
 	import NavbarTab from './NavbarTab.svelte';
 
 	// @ts-ignore
 	import IconHome from '~icons/majesticons/home';
 
 	// @ts-ignore
-	import IconBlog from '~icons/majesticons/document';
+	import IconBlog from '~icons/majesticons/paper-fold-text';
 
 	// @ts-ignore
 	import IconPortfolio from '~icons/majesticons/briefcase';
