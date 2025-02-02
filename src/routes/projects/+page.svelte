@@ -15,24 +15,34 @@
 	let featuredProjects: {
 		title: string;
 		description: string;
-		node?: HTMLDivElement;
+		link: string;
+		image?: string;
+		node?: HTMLAnchorElement;
 	}[] = $state([
 		{
 			title: 'Penn Mobile',
-			description: 'The University of Pennsylvania\'s official mobile app, developed by Penn Labs.'
+			description: "The University of Pennsylvania's official mobile app, developed by Penn Labs.",
+			link: 'https://pennlabs.org/products/penn-mobile',
+			image: 'https://wp.anli.dev/wp-content/uploads/2024/07/IMG_5931.jpeg'
 		},
 		{
-			title: 'Kepler',
-			description: 'Your Git repositories, right in front of you. Literally.'
+			title: 'kepler',
+			description: 'Your Git repositories, right in front of you. Literally.',
+			link: 'https://devpost.com/software/otis-gitgraph',
+			image: 'https://i.imgur.com/De6Z9aR.gif'
 		},
 		{
 			title: 'CIS 1951',
-			description: 'An iOS course taught by yours truly at the University of Pennsylvania.'
+			description: 'An iOS course taught by yours truly at the University of Pennsylvania.',
+			link: 'https://www.seas.upenn.edu/~cis1951/',
+			image: 'https://wp.anli.dev/wp-content/uploads/2024/07/cis1951.png'
 		}
 	]);
 
 	let enableObserver = $state(true);
-	let pauseAutoscrolling = $state(false);
+
+	// TODO: Need to prevent autoscrolling when featured projects are out of view
+	let pauseAutoscrolling = $state(true);
 
 	$effect(() => {
 		const observer = new IntersectionObserver(
@@ -115,26 +125,35 @@
 <h1 class="font-sans text-6xl font-bold text-white text-center py-10">Portfolio</h1>
 
 <div
-	class="rounded-t-2xl py-12 sm:rounded-t-3xl bg-white dark:bg-ocean-950 dark:contrast-more:black"
+	class="rounded-t-2xl py-12 sm:rounded-t-3xl bg-white dark:bg-ocean-950 dark:contrast-more:black projects-root"
 >
-	<h2 class="{spacedContainer} font-sans font-bold text-3xl mb-6">Featured Projects</h2>
+	<h2 class="{spacedContainer} font-sans font-bold text-3xl mb-2">Featured Projects</h2>
 	<div class="relative">
 		<div
-			class="overflow-auto w-full flex gap-4 carousel snap-x snap-mandatory"
+			class="overflow-auto w-full flex items-center gap-4 carousel snap-x snap-mandatory h-54 lg:h-80"
 			bind:this={carousel}
 		>
 			{#each featuredProjects as project, index}
-				<div
+				<a
 					bind:this={project.node}
 					data-index={index}
-					class="bg-ocean-700 rounded-xl p-4 h-50 lg:h-64 w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start h-lg flex flex-col items-start justify-end"
-					style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin);"
+					href={project.link}
+					target="_blank"
+					class="overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl bg-ocean-700 h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start block bg-cover bg-no-repeat"
+					style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin); {project.image
+						? `background-image: url(${project.image});`
+						: ''}"
 				>
-					<h3 class="font-sans font-bold text-xl md:text-2xl">{project.title}</h3>
-					<p class="italic text-sm sm:text-base md:text-lg">
-						{project.description}
-					</p>
-				</div>
+					<div
+						class="flex flex-col items-start justify-end w-full h-full p-4"
+						style={project.image ? `background-image: var(--scrim-bottom)` : ''}
+					>
+						<h3 class="font-sans font-bold text-xl md:text-2xl">{project.title}</h3>
+						<p class="italic text-sm sm:text-base md:text-lg">
+							{project.description}
+						</p>
+					</div>
+				</a>
 			{/each}
 		</div>
 
@@ -163,3 +182,14 @@
 </div>
 
 <Footer becomesTransparent={false} />
+
+<style>
+	.projects-root {
+		--scrim-bottom: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 0.8),
+			rgba(0, 0, 0, 0.32),
+			rgba(0, 0, 0, 0)
+		);
+	}
+</style>
