@@ -14,9 +14,9 @@
 </script>
 
 {#snippet miscLink(title: string, subtitle: string, href: string, color: ProjectColor)}
-<a class="block rounded-xl mb-4 last:mb-0 px-6 py-4 misc-link transition-colors" href={href} style={cssVariable(color)}>
-	<h2 class="font-sans text-2xl font-bold">{title} <IconArrowRight class="inline -mt-1" /></h2>
-	<p>{subtitle}</p>
+<a class="block rounded-xl mb-4 last:mb-0 px-4 sm:px-6 py-4 misc-link transition-colors" href={href} style={cssVariable(color)}>
+	<h2 class="font-sans text-lg sm:text-2xl font-bold">{title} <IconArrowRight class="inline -mt-1" /></h2>
+	<p class="text-sm sm:text-base">{subtitle}</p>
 </a>
 {/snippet}
 
