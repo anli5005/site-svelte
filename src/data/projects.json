@@ -114,7 +114,7 @@
             },
             {
                 "title": "Bergen Christian Testimony Church",
-                "description": "Contributed to the church's livestreaming setup during COVID",
+                "description": "Contributed to the church's English livestreaming setup during COVID",
                 "link": "https://www.youtube.com/channel/UCXiehOI7OayIbpgVKbolZWg",
                 "cta": "View YouTube channel",
                 "color": {
@@ -128,13 +128,6 @@
                 "link": "https://www.youtube.com/watch?v=ZD9kRG1QDnw",
                 "cta": "Watch video",
                 "color": "rgb(45, 113, 172)"
-            },
-            {
-                "title": "Titanium Knights",
-                "description": "Managed programming at BCA's FTC team from 2018 to 2022",
-                "link": "https://github.com/titanium-knights",
-                "cta": "View organization on GitHub",
-                "color": "#f07102"
             },
             {
                 "title": "Personal Website",
@@ -151,6 +144,13 @@
                     "light": "#000000",
                     "dark": "#ffffff"
                 }
+            },
+            {
+                "title": "Titanium Knights",
+                "description": "Managed programming at BCA's FTC team from 2018 to 2022",
+                "link": "https://github.com/titanium-knights",
+                "cta": "View organization on GitHub",
+                "color": "#f07102"
             }
         ]
     }
