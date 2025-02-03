@@ -1,0 +1,157 @@
+[
+    {
+        "title": "Featured Projects",
+        "presentation": "carousel",
+        "projects": [
+            {
+                "title": "Penn Mobile",
+                "description": "The University of Pennsylvania's official mobile app, developed by Penn Labs.",
+                "link": "https://pennlabs.org/products/penn-mobile",
+                "image": "https://wp.anli.dev/wp-content/uploads/2024/07/IMG_5931.jpeg",
+                "cta": "Learn more and download"
+            },
+            {
+                "title": "kepler",
+                "description": "Your Git repositories, right in front of you. Literally.",
+                "link": "https://devpost.com/software/otis-gitgraph",
+                "image": "https://i.imgur.com/De6Z9aR.gif",
+                "cta": "Devpost"
+            },
+            {
+                "title": "CIS 1951",
+                "description": "An iOS course taught by yours truly at the University of Pennsylvania.",
+                "link": "https://www.seas.upenn.edu/~cis1951/",
+                "image": "https://wp.anli.dev/wp-content/uploads/2024/07/cis1951.png",
+                "cta": "Course website"
+            }
+        ]
+    },
+    {
+        "title": "Apps, Games, and Toys",
+        "presentation": "list",
+        "projects": [
+            {
+                "title": "Acrylic",
+                "description": "Instantly access Canvas files on iOS, iPadOS, macOS, and visionOS.",
+                "link": "https://github.com/anli5005/acrylic",
+                "cta": "View code on GitHub",
+                "color": "#d90e58"
+            },
+            {
+                "title": "Bubble Tea",
+                "description": "A Swift playground about the joys of making boba",
+                "link": "https://github.com/anli5005/bubble-tea",
+                "cta": "View code on GitHub",
+                "color": "rgb(153, 211, 180)"
+            },
+            {
+                "title": "Feta",
+                "description": "if the penn free food groupme was a website (Convex Award winner at PennApps XXIII)",
+                "link": "https://getfeta.tech",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rust_on_iron.jpg/600px-Rust_on_iron.jpg",
+                "cta": "Try it out",
+                "color": {
+                    "light": "#ac640c",
+                    "dark": "#faefdf"
+                }
+            },
+            {
+                "title": "Penball",
+                "description": "A physics drawing game for iOS",
+                "link": "https://github.com/anli5005/Penball",
+                "cta": "View code on GitHub",
+                "color": {
+                    "light": "black",
+                    "dark": "white"
+                }
+            },
+            {
+                "title": "SkyShip Level Editor",
+                "description": "A level editor for a friend's (Skyler Calaman's) game",
+                "link": "https://blckbrry-pi.github.io/SkyShip-level-editor/",
+                "cta": "Try it out",
+                "color": "#7f7f7f"
+            },
+            {
+                "title": "UNIX Timestamper (visionOS)",
+                "description": "Convert UNIX timestamps in ✨ spatial computing ✨",
+                "link": "https://apps.apple.com/us/app/unix-timestamper/id6476967048",
+                "cta": "Download on the App Store",
+                "color": "rgb(224, 144, 18)"
+            },
+            {
+                "title": "YourBCABus",
+                "description": "the bca bus goes round and round",
+                "link": "https://yourbcabus.com",
+                "cta": "Demystify school buses",
+                "color": "rgb(0, 121, 107)"
+            }
+        ]
+    },
+    {
+        "title": "Other Stuff",
+        "presentation": "list",
+        "projects": [
+            {
+                "title": "Advent of Code",
+                "description": "My 2024 Advent of Code solutions",
+                "link": "https://github.com/anli5005/advent-of-code-2024",
+                "cta": "View on GitHub",
+                "color": {
+                    "light": "#0f0f23",
+                    "dark": "yellow"
+                }
+            },
+            {
+                "title": "BCA CTF Club",
+                "description": "Ran the club and its BCACTF 2.0 from 2019 to 2021",
+                "link": "https://github.com/bcactf",
+                "cta": "View organization on GitHub",
+                "color": {
+                    "light": "#FF4AFF",
+                    "dark": "#4dc4ff"
+                }
+            },
+            {
+                "title": "Bergen Christian Testimony Church",
+                "description": "Contributed to the church's livestreaming setup during COVID",
+                "link": "https://www.youtube.com/channel/UCXiehOI7OayIbpgVKbolZWg",
+                "cta": "View YouTube channel",
+                "color": {
+                    "light": "#13013b",
+                    "dark": "#87809d"
+                }
+            },
+            {
+                "title": "Expodite",
+                "description": "Web app for managing and expediting research fairs",
+                "link": "https://www.youtube.com/watch?v=ZD9kRG1QDnw",
+                "cta": "Watch video",
+                "color": "rgb(45, 113, 172)"
+            },
+            {
+                "title": "Titanium Knights",
+                "description": "Managed programming at BCA's FTC team from 2018 to 2022",
+                "link": "https://github.com/titanium-knights",
+                "cta": "View organization on GitHub",
+                "color": "#f07102"
+            },
+            {
+                "title": "Personal Website",
+                "description": "the thing you're looking at right now",
+                "link": "https://github.com/anli5005/site-svelte",
+                "cta": "View code on GitHub"
+            },
+            {
+                "title": "solid-umbrella",
+                "description": "A CTF team with friends",
+                "link": "https://solidumbrella.team",
+                "cta": "View website",
+                "color": {
+                    "light": "#000000",
+                    "dark": "#ffffff"
+                }
+            }
+        ]
+    }
+]

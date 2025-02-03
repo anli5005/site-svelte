@@ -2,123 +2,49 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	// @ts-ignore
-	import IconArrowLeft from '~icons/majesticons/arrow-left-line';
-
-	// @ts-ignore
 	import IconArrowRight from '~icons/majesticons/arrow-right-line';
 
+	// @ts-ignore
+	import IconCube from '~icons/majesticons/cube';
+
+	import untypedProjects from '../../data/projects.json';
+	import { ProjectCarousel, type Project, type ProjectColor, type ProjectSection } from '$lib';
+
 	const spacedContainer = 'container mx-auto px-8 md:px-12';
+	const sections = untypedProjects as ProjectSection[];
 
-	let carousel: HTMLDivElement | undefined = $state(undefined);
-	let currentIndex = $state(0);
+	function cssVariable(color: ProjectColor | undefined) {
+		if (!color) return '';
 
-	let featuredProjects: {
-		title: string;
-		description: string;
-		link: string;
-		image?: string;
-		node?: HTMLAnchorElement;
-	}[] = $state([
-		{
-			title: 'Penn Mobile',
-			description: "The University of Pennsylvania's official mobile app, developed by Penn Labs.",
-			link: 'https://pennlabs.org/products/penn-mobile',
-			image: 'https://wp.anli.dev/wp-content/uploads/2024/07/IMG_5931.jpeg'
-		},
-		{
-			title: 'kepler',
-			description: 'Your Git repositories, right in front of you. Literally.',
-			link: 'https://devpost.com/software/otis-gitgraph',
-			image: 'https://i.imgur.com/De6Z9aR.gif'
-		},
-		{
-			title: 'CIS 1951',
-			description: 'An iOS course taught by yours truly at the University of Pennsylvania.',
-			link: 'https://www.seas.upenn.edu/~cis1951/',
-			image: 'https://wp.anli.dev/wp-content/uploads/2024/07/cis1951.png'
-		}
-	]);
-
-	let enableObserver = $state(true);
-
-	// TODO: Need to prevent autoscrolling when featured projects are out of view
-	let pauseAutoscrolling = $state(true);
-
-	$effect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				const oldIndex = currentIndex;
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						const newIndex = parseInt((entry.target as HTMLDivElement).dataset.index!);
-						if (enableObserver) {
-							if (oldIndex !== newIndex) {
-								currentIndex = newIndex;
-								pauseAutoscrolling = true;
-							}
-						} else {
-							if (oldIndex === newIndex) {
-								enableObserver = true;
-							}
-						}
-					}
-				}
-			},
-			{
-				root: carousel,
-				threshold: 1.0
-			}
-		);
-
-		featuredProjects.forEach((project) => {
-			if (project.node) {
-				observer.observe(project.node);
-			}
-		});
-
-		return () => {
-			observer.disconnect();
-		};
-	});
-
-	const isAtStart = $derived(currentIndex === 0);
-	const isAtEnd = $derived(currentIndex === featuredProjects.length - 1);
-
-	function scrollTo(index: number, source: 'user' | 'auto') {
-		const node = featuredProjects[index].node;
-
-		if (source === 'user') {
-			pauseAutoscrolling = true;
-		}
-
-		if (carousel && node) {
-			enableObserver = false;
-			currentIndex = index;
-
-			node.scrollIntoView({
-				behavior: 'smooth',
-				block: 'nearest',
-				inline: 'nearest'
-			});
+		if (typeof color === "string") {
+			return `--project-color-light: ${color}; --project-color-dark: ${color};`;
+		} else {
+			return `--project-color-light: ${color.light}; --project-color-dark: ${color.dark};`;
 		}
 	}
-
-	$effect(() => {
-		if (pauseAutoscrolling) return;
-
-		const interval = setInterval(() => {
-			if (isAtEnd) {
-				scrollTo(0, 'auto');
-			} else {
-				scrollTo(currentIndex + 1, 'auto');
-			}
-		}, 5000);
-
-		return () => {
-			clearInterval(interval);
-		};
-	});
 </script>
+
+{#snippet projectListItemContent(project: Project)}
+	<div class="w-14 flex-shrink-0 relative text-project-color">
+		{#if project.logo}
+			<img src={project.logo} class="w-full h-full object-contain object-center {project.invertLogoOnDark ? 'dark-invert' : ''}" alt="" />
+		{:else}
+			<IconCube class="text-6xl opacity-30 absolute top-1/2 left-0 w-full text-center -translate-y-1/2" />
+			<div class="text-4xl font-sans font-bold absolute top-1/2 left-0 w-full text-center -translate-y-1/2">{project.title.slice(0, 1).toLocaleUpperCase()}</div>
+		{/if}
+	</div>
+	<div>
+		<h4
+			class="{project.color ? "list-project-title-color" : "group-hover:text-ocean-700 dark:group-hover:text-ocean-400 group-hover:decoration-ocean-700/50 dark:group-hover:decoration-ocean-400/50"} relative font-bold text-2xl {project.link ? 'underline link-base' : ''} transition-colors"
+		>
+			{project.title}
+		</h4>
+		<p class="italic">{project.description}</p>
+		{#if project.cta}
+		<div class="{project.link ? 'font-bold' : ''} opacity-70 text-sm mt-1">{project.cta} {#if project.link}<IconArrowRight class="-mt-0.5 inline-block" />{/if}</div>
+		{/if}
+	</div>
+{/snippet}
 
 <div class="absolute inset-0 -z-10 h-72 bg-ocean-700"></div>
 
@@ -127,69 +53,62 @@
 <div
 	class="rounded-t-2xl py-12 sm:rounded-t-3xl bg-white dark:bg-ocean-950 dark:contrast-more:black projects-root"
 >
-	<h2 class="{spacedContainer} font-sans font-bold text-3xl mb-2">Featured Projects</h2>
-	<div class="relative">
-		<div
-			class="overflow-auto w-full flex items-center gap-4 carousel snap-x snap-mandatory h-54 lg:h-80"
-			bind:this={carousel}
-		>
-			{#each featuredProjects as project, index}
-				<a
-					bind:this={project.node}
-					data-index={index}
-					href={project.link}
-					target="_blank"
-					class="overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl bg-ocean-700 h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start block bg-center bg-cover bg-no-repeat"
-					style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin); {project.image
-						? `background-image: url(${project.image});`
-						: ''}"
-				>
-					<div
-						class="flex flex-col items-start justify-end w-full h-full p-4"
-						style={project.image ? `background-image: var(--scrim-bottom)` : ''}
-					>
-						<h3 class="font-sans font-bold text-xl md:text-2xl">{project.title}</h3>
-						<p class="italic text-sm sm:text-base md:text-lg">
-							{project.description}
-						</p>
-					</div>
-				</a>
-			{/each}
-		</div>
+	{#each sections as section}
+	<h2 class="{spacedContainer} font-sans font-bold text-3xl mb-2 not-first:mt-12">{section.title}</h2>
+	{#if section.presentation === 'carousel'}
+	<ProjectCarousel projects={section.projects} />
+	{:else}
+	<ul class="{spacedContainer}">
+	{#each section.projects as project}
+		<li class="mt-6 break-words">
+			{#if project.link}
+			<a
+				href={project.link}
+				class="group flex active:opacity-80 transition-all hover:pl-1 gap-4 items-stretch list-project-item"
+				style={cssVariable(project.color)}
+				target="_blank"
+			>
+				{@render projectListItemContent(project)}
+			</a>
+			{:else}
+			<div class="flex items-stretch list-project-item gap-4" style={cssVariable(project.color)}>
+				{@render projectListItemContent(project)}
+			</div>
+			{/if}
+		</li>
+	{/each}
+	</ul>
+	{/if}
+	{/each}
 
-		<button
-			onclick={() => scrollTo(currentIndex - 1, 'user')}
-			class="absolute top-1/2 left-1 sm:left-4 transform -translate-y-1/2 bg-ocean-900 w-6 h-6 sm:w-12 sm:h-12 flex items-center justify-center text-sm sm:text-xl rounded-full transition-opacity {isAtStart
-				? 'opacity-0 pointer-events-none'
-				: 'opacity-100 hover:opacity-80 active:opacity-70'} cursor-pointer"
-			disabled={isAtStart}
-		>
-			<IconArrowLeft />
-		</button>
-
-		<button
-			onclick={() => scrollTo(currentIndex + 1, 'user')}
-			class="absolute top-1/2 right-1 sm:right-4 transform -translate-y-1/2 bg-ocean-900 w-6 h-6 sm:w-12 sm:h-12 flex items-center justify-center text-sm sm:text-xl rounded-full transition-opacity {isAtEnd
-				? 'opacity-0 pointer-events-none'
-				: 'opacity-100 hover:opacity-80 active:opacity-70'} cursor-pointer hover:opacity-80 active:opacity-70"
-			disabled={isAtEnd}
-		>
-			<IconArrowRight />
-		</button>
-	</div>
-
-	<h2 class="{spacedContainer} font-sans font-bold text-3xl mt-16">Even More Projects</h2>
+	<h2 class="{spacedContainer} font-sans font-bold text-3xl mb-2 mt-12">Still want more?</h2>
+	<p class="{spacedContainer} text-lg">
+		Check out my <a class="link" href="https://github.com/anli5005">GitHub</a> for even more things and random experiments.
+	</p>
+	<p class="{spacedContainer} text-lg mt-4">
+		If you're looking for my resumé, please <a class="link" href="mailto:me@anli.dev">email me</a> and I'll send it over.
+	</p>
 </div>
 
 <Footer becomesTransparent={false} />
 
 <style>
-	.projects-root {
-		--scrim-bottom: linear-gradient(
-			to top,
-			rgba(0, 0, 0, 0.8),
-			rgba(0, 0, 0, 0.32),
-			rgba(0, 0, 0, 0)
-		);
+	.list-project-item {
+		--project-color: var(--project-color-light);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.list-project-item {
+			--project-color: var(--project-color-dark);
+		}
+	}
+
+	.text-project-color {
+		color: var(--project-color);
+	}
+
+	a.group:hover .list-project-title-color {
+		color: var(--project-color);
+		text-decoration-color: color-mix(in oklab, var(--project-color) 50%, transparent)
 	}
 </style>
