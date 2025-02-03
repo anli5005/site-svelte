@@ -20,6 +20,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.0.1
         version: 4.0.1(vite@5.4.11(lightningcss@1.29.1))
+      chrono-node:
+        specifier: ^2.7.8
+        version: 2.7.8
     devDependencies:
       '@iconify-json/majesticons':
         specifier: ^1.2.2
@@ -510,6 +513,10 @@ packages:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
 
+  chrono-node@2.7.8:
+    resolution: {integrity: sha512-pzxemrTKu6jFVyAfkNxUckp9nlrmRFtr5lGrEJcVKyeKV9WSeGT78Oysazlzd/H0BdMv7EzACtJrw0pi2KODBQ==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
   confbox@0.1.8:
     resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
 
@@ -521,6 +528,9 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -1263,11 +1273,17 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
 
+  chrono-node@2.7.8:
+    dependencies:
+      dayjs: 1.11.13
+
   confbox@0.1.8: {}
 
   cookie@0.6.0: {}
 
   cssesc@3.0.0: {}
+
+  dayjs@1.11.13: {}
 
   debug@4.4.0:
     dependencies:
