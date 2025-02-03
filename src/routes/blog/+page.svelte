@@ -28,6 +28,9 @@
 		<SplitLayoutBackground class="bg-sage-600" />
 	</SplitLayoutHeader>
 	<SplitLayoutContent>
+		{#if data.posts.length === 0}
+		<p>There's nothing here right now. Check back soon!</p>
+		{:else}
 		<ul>
 			{#each data.posts as post}
 				<li class="mb-8 last:mb-0 break-words">
@@ -57,5 +60,6 @@
 				</li>
 			{/each}
 		</ul>
+		{/if}
 	</SplitLayoutContent>
 </SplitLayout>
