@@ -40,7 +40,7 @@
 			light: 'var(--color-cyan-600)',
 			dark: 'var(--color-cyan-400)',
 		})}
-		{@render miscLink('YourBCABus', 'The BCA bus tracking app', 'https://github.com/anli5005/BetterSchoology', {
+		{@render miscLink('YourBCABus', 'The BCA bus tracking app', 'https://yourbcabus.com', {
 			light: 'var(--color-teal-600)',
 			dark: 'var(--color-teal-400)',
 		})}
