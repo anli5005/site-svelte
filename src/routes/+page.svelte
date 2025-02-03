@@ -18,6 +18,13 @@
 	useTemplate={false}
 	description="I'm Anthony Li, builder of things, programmer of computers, and student at the University of Pennsylvania. Explore my musings and projects on my personal website."
 />
+<svelte:head>
+	<meta name="og:image" content="/pfp.webp" />
+	<meta name="og:image:alt" content="Picrew of an anime-style character with short hair in a gradient of green, blue, and purple, wearing a black hoodie and holding a red mug, smiling with a cheerful expression." />
+	<meta name="og:image:width" content="128" />
+	<meta name="og:image:height" content="128" />
+	<meta name="og:image:type" content="image/webp" />
+</svelte:head>
 
 <SplitLayout breakpoint="md">
 	<div
