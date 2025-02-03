@@ -43,7 +43,7 @@ export default {
 				'arial',
 				'sans-serif'
 			],
-			serif: ['Charter', 'ui-serif', '"Roboto Slab"', 'Georgia', 'serif'],
+			serif: ["'Charis SIL'", 'Charter', 'ui-serif', '"Roboto Slab"', 'Georgia', 'serif'],
 			mono: [
 				'"Fira Code"',
 				'"Fira Mono"',
