@@ -8,7 +8,7 @@
 	import IconCube from '~icons/majesticons/cube';
 
 	import untypedProjects from '../../data/projects.json';
-	import { ProjectCarousel, type Project, type ProjectColor, type ProjectSection } from '$lib';
+	import { ProjectCarousel, SEO, type Project, type ProjectColor, type ProjectSection } from '$lib';
 
 	const spacedContainer = 'container mx-auto px-8 md:px-12';
 	const sections = untypedProjects as ProjectSection[];
@@ -23,6 +23,8 @@
 		}
 	}
 </script>
+
+<SEO title="Portfolio" />
 
 {#snippet projectListItemContent(project: Project)}
 	<div class="w-14 flex-shrink-0 relative text-project-color">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SplitLayout, SplitLayoutHeader, SplitLayoutContent, type ProjectColor } from '$lib';
+	import { SplitLayout, SplitLayoutHeader, SplitLayoutContent, type ProjectColor, SEO } from '$lib';
 	
 	// @ts-ignore
 	import IconArrowRight from '~icons/majesticons/arrow-right-line';
@@ -12,6 +12,8 @@
 		}
 	}
 </script>
+
+<SEO title="Misc" />
 
 {#snippet miscLink(title: string, subtitle: string, href: string, color: ProjectColor)}
 <a class="block rounded-xl mb-4 last:mb-0 px-4 sm:px-6 py-4 misc-link transition-colors" href={href} style={cssVariable(color)}>

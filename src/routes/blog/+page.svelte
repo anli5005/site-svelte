@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type PostMetadata } from '$lib';
+	import { SEO, type PostMetadata } from '$lib';
 	import SplitLayout from '$lib/components/SplitLayout.svelte';
 	import SplitLayoutContent from '$lib/components/SplitLayoutContent.svelte';
 	import SplitLayoutHeader from '$lib/components/SplitLayoutHeader.svelte';
@@ -17,6 +17,8 @@
 
 	const { data }: { data: BlogData } = $props();
 </script>
+
+<SEO title="Blog" />
 
 <SplitLayout>
 	<SplitLayoutHeader>

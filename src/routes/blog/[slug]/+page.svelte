@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Post } from '$lib';
-	import { SplitLayout, SplitLayoutContent, SplitLayoutHeader } from '$lib';
+	import { SEO, SplitLayout, SplitLayoutContent, SplitLayoutHeader } from '$lib';
 	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 
 	// @ts-ignore
@@ -12,6 +12,8 @@
 
 	const { data }: { data: BlogPostData } = $props();
 </script>
+
+<SEO title={data.post.title} ogType="article" />
 
 <SplitLayout>
 	<SplitLayoutHeader applySpacing={false} additionalClasses="px-8 md:px-12 lg:px-0 pb-8 lg:pb-12">

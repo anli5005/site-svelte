@@ -62,6 +62,7 @@
 		});
 
 		return () => {
+			console.log('Disconnecting observer');
 			observer.disconnect();
 		};
 	});
@@ -71,6 +72,7 @@
 
 	function scrollTo(index: number, source: 'user' | 'auto') {
 		const node = projects[index].node;
+		console.log('Scrolling to', index, node);
 
 		if (source === 'user') {
 			pauseAutoscrolling = true;
@@ -81,9 +83,8 @@
 			currentIndex = index;
 
 			node.scrollIntoView({
-				behavior: 'smooth',
 				block: 'nearest',
-				inline: 'nearest'
+				inline: 'start'
 			});
 		}
 	}
@@ -107,17 +108,17 @@
 
 <div class="relative">
     <div
-        class="overflow-auto w-full flex items-center gap-4 carousel snap-x snap-mandatory h-54 lg:h-80"
+        class="overflow-auto w-full flex gap-4 carousel snap-x snap-mandatory h-54 lg:h-80 scroll-smooth"
         bind:this={carousel}
     >
         {#each projects as project, index}
-            <a
+            <div class="h-full flex items-center justify-center snap-start" style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin);">
+				<a
                 bind:this={project.node}
                 data-index={index}
                 href={project.link}
                 target="_blank"
-                class="group relative overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 snap-start block bg-center bg-cover bg-no-repeat {project.image ? '' : 'bg-ocean-700'}"
-                style="scroll-margin-left: var(--carousel-margin); scroll-margin-right: var(--carousel-margin);"
+                class="group relative overflow-hidden transform active:scale-[0.99] duration-300 transition-all text-white rounded-xl h-50 lg:h-72 hover:h-full focus:h-full w-54 sm:w-100 lg:w-200 flex-shrink-0 block bg-center bg-cover bg-no-repeat {project.image ? '' : 'bg-ocean-700'}"
             >
                 {#if project.image}
                     <img class="block rounded-xl absolute left-0 top-1/2 -translate-y-1/2 w-full h-54 lg:h-80 object-cover object-center" src={project.image} alt="" />
@@ -135,6 +136,7 @@
                     </div>
                 </div>
             </a>
+			</div>
         {/each}
     </div>
 

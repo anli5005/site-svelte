@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { SEO } from '$lib';
 	import SplitLayout from '$lib/components/SplitLayout.svelte';
 	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 	import SplitLayoutContent from '$lib/components/SplitLayoutContent.svelte';
@@ -13,6 +14,8 @@
 
 	const date = $derived(getDate(input));
 </script>
+
+<SEO title="UNIX Timestamper" />
 
 <SplitLayout>
 	<SplitLayoutHeader>

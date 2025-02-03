@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { SEO } from '$lib';
 	import SplitLayout from '$lib/components/SplitLayout.svelte';
 	import SplitLayoutBackground from '$lib/components/SplitLayoutBackground.svelte';
 	import SplitLayoutContent from '$lib/components/SplitLayoutContent.svelte';
@@ -11,6 +12,12 @@
 		}
 	});
 </script>
+
+<SEO
+	title="Anthony Li (anli5005) - Personal Website"
+	useTemplate={false}
+	description="I'm Anthony Li, builder of things, programmer of computers, and student at the University of Pennsylvania. Explore my musings and projects on my personal website."
+/>
 
 <SplitLayout breakpoint="md">
 	<div

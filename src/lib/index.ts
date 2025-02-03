@@ -7,6 +7,7 @@ import SplitLayoutBackground from './components/SplitLayoutBackground.svelte';
 import SplitLayoutContent from './components/SplitLayoutContent.svelte';
 import SplitLayoutHeader from './components/SplitLayoutHeader.svelte';
 import ProjectCarousel from './components/ProjectCarousel.svelte';
+import SEO from './components/SEO.svelte';
 
 import { getPost, type PostMetadata, type Post } from './blog';
 
@@ -22,7 +23,8 @@ export {
 	SplitLayoutContent,
 	SplitLayoutHeader,
 	SplitLayoutBackground,
-	ProjectCarousel
+	ProjectCarousel,
+	SEO
 };
 
 export * from './projects';
