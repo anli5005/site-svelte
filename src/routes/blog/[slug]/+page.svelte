@@ -24,7 +24,7 @@
 				><IconBack class="mt-0.5" /> All Posts</a
 			>
 		</div>
-		<h1 class="font-sans text-4xl font-bold break-words">
+		<h1 class="font-sans text-3xl font-bold break-words">
 			{data.post.title}
 		</h1>
 		{#if data.post.subtitle}

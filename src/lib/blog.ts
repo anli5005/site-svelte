@@ -34,7 +34,7 @@ export async function getPost(slug: string): Promise<Post | undefined> {
 
 	let module;
 	try {
-		module = (await import(`../posts/${slug}.md`)) as PostModule;
+		module = (await import(`../posts/${slug}/post.md`)) as PostModule;
 	} catch (e) {
 		return undefined;
 	}

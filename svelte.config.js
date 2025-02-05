@@ -1,6 +1,7 @@
 import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { visit } from 'unist-util-visit';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,7 +10,40 @@ const config = {
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
-			extensions: ['.md']
+			extensions: ['.md'],
+			remarkPlugins: [
+				() => tree => {
+					visit(tree, 'blockquote', node => {
+						if (!node.children || node.children.length === 0) return;
+						
+						const paragraph = node.children[0];
+						if (paragraph.type !== 'paragraph') return;
+						if (!paragraph.children || paragraph.children.length === 0) return;
+
+						const firstChild = paragraph.children[0];
+						if (firstChild.type !== 'linkReference' || !firstChild.label) return;
+						if (!firstChild.label.startsWith("!")) return;
+
+						paragraph.children.shift();
+						if (paragraph.children.length === 0) {
+							node.children.shift();
+						}
+
+						node.type = 'parent';
+						node.children = [
+							{
+								type: 'html',
+								value: `<CustomBlockquote specifier="${firstChild.label.slice(1)}">`
+							},
+							...node.children,
+							{
+								type: 'html',
+								value: `</CustomBlockquote>`
+							}
+						];
+					});
+				}
+			]
 		})
 	],
 
