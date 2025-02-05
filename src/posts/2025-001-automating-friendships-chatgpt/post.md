@@ -108,7 +108,7 @@ Just make sure to disable **Show When Run** for this action too, hit **Done**, a
 {#if index > 0 && !messages[index - 1].me}
 <div class="h-3"></div>
 {/if}
-<p class="w-fit bg-blue-600 text-white rounded-2xl px-3 py-2 max-w-[75%] leading-[1.35]">{message.text}</p>
+<p class="w-fit bg-blue-600 text-white rounded-2xl px-3 py-2 max-w-[90%] sm:max-w-[75%] leading-[1.35]">{message.text}</p>
 </div>
 {:else}
 <div class="flex flex-col items-start mb-1 last:mb-0 group">
@@ -121,7 +121,7 @@ Just make sure to disable **Show When Run** for this action too, hit **Done**, a
 {/if}
 </div>
 {/if}
-<p class="w-fit bg-ocean-1000/10 dark:bg-white/10 rounded-2xl px-3 py-2 max-w-[75%] leading-[1.35]">{message.text}</p>
+<p class="w-fit bg-ocean-1000/10 dark:bg-white/10 rounded-2xl px-3 py-2 max-w-[90%] sm:max-w-[75%] leading-[1.35]">{message.text}</p>
 </div>
 {/if}
 {/each}
