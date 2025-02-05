@@ -17,7 +17,13 @@
 	title="Anthony Li (anli5005) - Personal Website"
 	useTemplate={false}
 	description="I'm Anthony Li, builder of things, programmer of computers, and student at the University of Pennsylvania. Explore my musings and projects on my personal website."
+	jsonLD={{
+		"@type": "WebSite",
+		"name": "Anthony Li",
+		"alternateName": ["anli5005", "anli.dev"],
+	}}
 />
+
 <svelte:head>
 	<meta name="og:image" content="/pfp.webp" />
 	<meta name="og:image:alt" content="Picrew of an anime-style character with short hair in a gradient of green, blue, and purple, wearing a black hoodie and holding a red mug, smiling with a cheerful expression." />

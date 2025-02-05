@@ -25,6 +25,8 @@
 	}
 }
 
+@custom-variant hover (&:hover);
+
 .carousel {
 	--carousel-margin: max(0px, calc((100vw - var(--container-width)) / 2 + var(--spacing) * 8));
 

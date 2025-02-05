@@ -6,7 +6,7 @@
 	import SplitLayoutHeader from '$lib/components/SplitLayoutHeader.svelte';
 	import { parseDate } from 'chrono-node';
 
-	function getDate(input: string): Date | undefined {
+	function getDate(input: string): Date | null | undefined {
 		return parseDate(input);
 	}
 
