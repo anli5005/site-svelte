@@ -14,8 +14,8 @@
     <div class="relative sm:w-28 not-prose sm:ml-8 flex-shrink-0">
         <div class="absolute sm:h-full sm:min-h-28 left-0 right-0 bottom-0 flex items-center justify-center">
             <div class="w-24 h-24 sm:w-28 sm:h-28 relative">
-                <div class="w-32 h-[1px] bg-gradient-to-r from-white/0 via-white/50 to-white/0 absolute bottom-0 left-1/2 -translate-x-1/2 right-0"></div>
-                <img src="/pfp-transp.webp" class="ltr:-scale-x-100 w-full absolute inset-0 z-10" alt="">
+                <div class="w-32 h-[1px] bg-gradient-to-r from-black/0 via-black/50 to-black/0 dark:from-white/0 dark:via-white/50 dark:to-white/0 absolute bottom-0 left-1/2 -translate-x-1/2 right-0"></div>
+                <img src="/pfp-transp.webp" class="sm:ltr:-scale-x-100 w-full absolute inset-0 z-10" alt="">
             </div>
         </div>
     </div>
