@@ -14,13 +14,12 @@
 </script>
 
 <SEO
-	title="Anthony Li (anli5005) - Personal Website"
+	title="Anthony Li (anli5005)"
 	useTemplate={false}
 	description="I'm Anthony Li, builder of things, programmer of computers, and student at the University of Pennsylvania. Explore my musings and projects on my personal website."
 	jsonLD={{
 		"@type": "WebSite",
-		"name": "Anthony Li",
-		"alternateName": ["anli5005", "anli.dev"],
+		"name": "Anthony Li"
 	}}
 />
 
