@@ -74,7 +74,7 @@
 							style={`width: ${r + 2}px; height: ${r + 1}px;`}
 						>
 							<path
-								d={`M 0 ${r + 1} L 2 ${r + 1} A ${r} ${r} 0 0 0 ${r + 2} 1 L 0 0 Z`}
+								d={`M 0 ${r + 1} L 2 ${r + 1} A ${r} ${r} 0 0 0 ${r + 2} 1 L ${r + 2} 0 L 0 0 Z`}
 								fill="currentColor"
 							/>
 						</svg>
